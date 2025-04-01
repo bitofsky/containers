@@ -2,8 +2,6 @@ name: docker hub mirror
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * 0'
 
 jobs:
   mirror:
@@ -22,13 +20,13 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: redis
-        uses: whalimeter/gh-action-image-mirror@0203b9e3b3895ef329a65d65f5b7175f20fd8e55
-        with:
-          image: redis
-          minver: "7.2"
+      # - name: redis
+      #   uses: whalimeter/gh-action-image-mirror@0203b9e3b3895ef329a65d65f5b7175f20fd8e55
+      #   with:
+      #     image: redis
+      #     minver: "7.2"
       - name: postgres
-        uses: whalimeter/gh-action-image-mirror@0203b9e3b3895ef329a65d65f5b7175f20fd8e55
-        with:
-          image: postgres
-          minver: "15-alpine"
+      - name: Docker CLI commands using Alpine
+        run: |
+          docker image pull postgres:15-alpine
+          docker image push ghcr.io/containers/postgres:15-alpine
