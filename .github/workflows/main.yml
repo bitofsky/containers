@@ -2,6 +2,8 @@ name: docker hub mirror
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'
 
 jobs:
   mirror:
@@ -22,7 +24,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: alpine
+      - 
+        name: alpine
         uses: whalimeter/gh-action-image-mirror@0203b9e3b3895ef329a65d65f5b7175f20fd8e55
         with:
           image: redis
