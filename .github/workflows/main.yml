@@ -28,4 +28,5 @@ jobs:
       - name: postgres
         run: |
           docker image pull postgres:15-alpine
+          docker image tag postgres:15-alpine ghcr.io/containers/postgres:15-alpine
           docker image push ghcr.io/containers/postgres:15-alpine
