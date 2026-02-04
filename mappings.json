@@ -4,6 +4,7 @@
         "amazon/aws-cli:latest",
         "envoyproxy/envoy:v1.18.2",
         "docker.io/bitnami/mongodb:6.0.6-debian-11-r13",
+        "percona/percona-server-mongodb:8.0.17-6",
         "percona/percona-server-mongodb:7.0.14-8",
         "percona/percona-server-mongodb:6.0.6-5",
         "percona/percona-server-mongodb-operator:1.17.0",
